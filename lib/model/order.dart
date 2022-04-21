@@ -16,15 +16,6 @@ class Order {
   OrderLocation? start;
   OrderLocation? end;
 
-  Order copyWith({
-    int? operatorId,
-    List<int>? services,
-  }) {
-    return Order(
-      operatorId: operatorId ?? this.operatorId,
-      services: services ?? this.services,
-    );
-  }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
