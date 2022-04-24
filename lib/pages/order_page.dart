@@ -33,7 +33,7 @@ class OrderPage extends GetView<OrderController> {
                   children: <Widget>[
                     Row(children: const [
                       Expanded(
-                          child: Text(
+                        child: Text(
                         'Preencha o fomulário de ordem de serviço',
                         textAlign: TextAlign.center,
                         style: TextStyle(

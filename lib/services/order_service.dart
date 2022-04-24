@@ -1,3 +1,4 @@
+import 'package:abctechapp/main.dart';
 import 'package:abctechapp/model/order.dart';
 import 'package:abctechapp/model/order_created.dart';
 import 'package:abctechapp/provider/order_provider.dart';
@@ -17,7 +18,8 @@ class OrderService extends GetxService implements OrderServiceInterface {
 
   @override
   Future<OrderCreated> createOrder(Order order) async {
-    Response response = await _orderProvider.postOrder(order);
+    var token = await storage.read(key: "jwt");
+    Response response = await _orderProvider.postOrder(order, token);
 
     if(response.hasError) {
       //TODO tratar possiveis cenarios de errro da api

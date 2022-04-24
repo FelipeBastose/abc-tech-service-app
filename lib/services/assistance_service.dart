@@ -1,3 +1,4 @@
+import 'package:abctechapp/main.dart';
 import 'package:abctechapp/model/assistance.dart';
 import 'package:abctechapp/provider/assistance_provider.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,8 @@ class AssistanceService extends GetxService implements AssistanceServiceInterfac
   
   @override
   Future<List<Assistance>> getAssists() async {
-    Response response = await _assistanceProvider.getAssists();
+    var token = await storage.read(key: "jwt");
+    Response response = await _assistanceProvider.getAssists(token);
     if (response.hasError) {
       return Future.error(ErrorDescription("Erro na conexão"));
     }
